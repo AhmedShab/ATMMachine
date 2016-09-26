@@ -26,5 +26,20 @@ namespace ATMMachine.Controllers
 
             return View();
         }
+
+        public ActionResult Serial(string letterCase)
+        {
+            var serial = "ASDFGH101";
+            if (letterCase == "lower")
+            {
+                return Content(serial.ToLower());
+            }
+            //return Content(serial);
+
+            //return Json(new { name = "serial", value = serial },
+            //    JsonRequestBehavior.AllowGet);
+
+            return RedirectToAction("index");
+        }
     }
 }
