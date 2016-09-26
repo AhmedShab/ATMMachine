@@ -8,6 +8,7 @@ namespace ATMMachine.Controllers
 {
     public class HomeController : Controller
     {
+        [MyLoggingFilter]
         public ActionResult Index()
         {
             return View();
@@ -15,7 +16,7 @@ namespace ATMMachine.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.TheMessage = "Having a troble, send us a message";
 
             return View();
         }
@@ -23,6 +24,14 @@ namespace ATMMachine.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(string message)
+        {
+            ViewBag.TheMessage = "Thanks, we got your message";
 
             return View();
         }

@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using ATMMachine;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ATMMachine
@@ -8,6 +9,7 @@ namespace ATMMachine
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new MyLoggingFilterAttribute());
         }
     }
 }
