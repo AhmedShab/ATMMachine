@@ -1,13 +1,13 @@
-﻿@{
+@{
     ViewBag.Title = "Home Page";
-    //Layout = "MyLayout.cshtml";
 }
+
 
 <div class="row">
     <div class="col-md-6 margin-top-20">
         <a href="#" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-circle-arrow-down"></span> Withdrawal</a>
         <a href="#" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-flash"></span> Quick Cash $100</a>
-        <a href="#" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-question-sign"></span> Balance Inquiry</a>
+        <a href="@Url.Action("Details", "CheckingAccount")" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-question-sign"></span> Balance Inquiry</a>
     </div>
     <div class="col-md-6 margin-top-20">
         <a href="#" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-print"></span> Print Statement</a>
@@ -15,25 +15,3 @@
         <a href="#" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-circle-arrow-up"></span> Deposit</a>
     </div>
 </div>
-
-@*You are using @Request.Browser.Browser, and that's okay! Eamil us at ahmed.vuw@gmail.com if you have any problem.
-
-@{var amounts = new List<Decimal> { 100, 25.50m, -40, 275.99m };
-}
-
-<ul>
-    @foreach (decimal amount in amounts)
-    {
-        <li>@formatAmount(amount)</li>
-    }
-</ul>
-
-    @helper formatAmount(decimal amount)
-{
-        var color = "green";
-        if (amount < 0 )
-{
-        color = "red";
-}
-<span style="color:@color">@String.Format("{0:c}", amount)</span>
-}*@
