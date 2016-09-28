@@ -35,5 +35,7 @@ namespace AutomatedTellerMachine.Models
 
         [Required]
         public string ApplicationUserId { get; set; }
+
+        public virtual ICollection<Transection> Transections { get; set; }
     }
 }

@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AutomatedTellerMachine.Models;
+using Microsoft.AspNet.Identity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AutomatedTellerMachine.Controllers
 {
     public class HomeController : Controller
     {
-        // GET /home/index        
+        private ApplicationDbContext db = new ApplicationDbContext();
+        // GET /home/index    
+        [Authorize]    
         public ActionResult Index()
-        {            
+        {
+            var userId = User.Identity.GetUserId();
+            var checkingAccountId = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First().Id;
+            ViewBag.CheckingAccountId = checkingAccountId;
             return View();
         }
 
